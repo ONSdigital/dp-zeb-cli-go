@@ -88,6 +88,8 @@ func create() *cobra.Command {
 				return err
 			}
 
+			fmt.Printf("making request: %s\n", r.URL.String())
+
 			resp, err := cli.Do(r)
 			if err != nil {
 				return err
