@@ -119,7 +119,7 @@ func create() *cobra.Command {
 		},
 	}
 
-	cmd.Flags().StringP("url", "url", "http://localhost:8081", "the zebedee API url (default http://localhost:8081)")
+	cmd.Flags().StringP("url", "u", "http://localhost:8081", "the zebedee API url (default http://localhost:8081)")
 	cmd.MarkFlagRequired("host")
 
 	cmd.Flags().StringP("auth", "a", "", "user api auth token")

@@ -1,0 +1,1 @@
+sudo docker run -i -t --name dp-zeb-cli golang /bin/bash
