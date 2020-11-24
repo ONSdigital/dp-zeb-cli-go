@@ -45,7 +45,7 @@ func create() *cobra.Command {
 		Use:  "create",
 		Long: "Create a new scheduled collection",
 		RunE: func(cmd *cobra.Command, args []string) error {
-			host, err := cmd.Flags().GetString("host")
+			zebURL, err := cmd.Flags().GetString("url")
 			if err != nil {
 				return err
 			}
@@ -82,7 +82,7 @@ func create() *cobra.Command {
 				ReleaseURI:      "",
 			}
 
-			zebedeeURL := fmt.Sprintf("%s/zebedee/collection", host)
+			zebedeeURL := fmt.Sprintf("%s/zebedee/collection", zebURL)
 			r, err := newAuthenticatedRequest(auth, http.MethodPost, zebedeeURL, col)
 			if err != nil {
 				return err
@@ -120,7 +120,7 @@ func create() *cobra.Command {
 	}
 
 	cmd.Flags().StringP("url", "u", "http://localhost:8081", "the zebedee API url (default http://localhost:8081)")
-	cmd.MarkFlagRequired("host")
+	cmd.MarkFlagRequired("url")
 
 	cmd.Flags().StringP("auth", "a", "", "user api auth token")
 	cmd.MarkFlagRequired("auth")
